@@ -1,0 +1,266 @@
+@keyframes siren-notif-appear {
+    0% {
+        opacity: 0;
+        top: 20px;
+    }
+
+    100% {
+        opacity: 1;
+        top: 8px;
+    }
+}
+
+/*body {
+    background: #DA4453; 
+    background: -webkit-linear-gradient(to right, #89216B, #DA4453); 
+    background: linear-gradient(to right, #89216B, #DA4453);
+}*/
+    /*background-image: url(https://img.freepik.com/free-vector/background-with-dar-wave-concept_23-2148387248.jpg?w=740&t=st=1708312757~exp=1708313357~hmac=0d53f67dd2016314d7ebcf2cfb16768ff51991ce9a0e735df7def5f53b072ed8);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;*/
+
+    body{
+        background-image: url('../assets/home_bg.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+
+.page-container {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.page-title {
+    font-family: rasa;
+    color: rgb(0, 0, 0);
+    font-weight: 700;
+    font-size: 2.5rem;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.title-desc {
+    font-family: arial;
+    color: rgb(0, 0, 0);
+    margin-top: 1rem;
+    font-weight: 500;
+    text-align: left;
+    text-align: center;
+}
+
+.title-image{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.title-image img{
+    width: 200px;
+    height: 200px;
+}
+
+.vote-container, .result-container-parent {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.voting-option-container {
+    width: 260px;
+    height: 300px;
+    margin: 10px;
+}
+
+.voting-option-container label {
+    width: 100%;
+    height: 100%;
+}
+
+.option-label-div {
+    height: 100%;
+    width: 100%;
+    border-radius: 16px;
+    display: flex;
+    box-sizing: border-box;
+    padding: 7%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: black;
+    background-color: white;
+    border-radius: 8px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.vote-container input {
+    display: none;
+}
+
+.vote-photo {
+    width: 200px;
+    height:200px;
+    border-radius: 16px;
+}
+
+.vote-name {
+    font-family: arial;
+    font-size: 2.3rem;
+    font-weight: 600;
+}
+
+input:checked + label {
+    .option-label-div {
+        border: 4px solid rgb(83, 83, 83);
+        transform: scale(1.07);
+    }
+}
+
+.status {
+    margin-top: 16px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-direction: row;
+}
+
+.siren-icon {
+    margin-right: 1rem;
+}
+
+.siren-parent-div {
+    width: 20px;
+    height: 20px;
+}
+
+.siren-icon:hover + .siren-notif-block {
+    animation-name: siren-notif-appear;
+    animation-duration: 1s;
+    display: block;
+    z-index: 4;
+}
+
+.siren-notif-block {
+    position: relative;
+    background-color: #1a1a1af6;
+    color: white;
+    width: 250px;
+    display: flex;
+    text-align: center;
+    top: 10px;
+    padding: 10px;
+    right: 90px;
+    border-radius: 8px;
+    display: none;
+}
+
+.option-label-div:hover {
+    transform: scale(1.07);
+}
+
+.option-bar {
+    width: 100%;
+}
+
+.tab-pane {
+    border-top: none;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    margin-bottom: 30px;
+    padding: 20px;
+}
+
+.tab-pane-button:not(.active) {
+    color: white;
+}
+
+.tab-pane-button:not(.active):hover {
+    color: rgb(189, 189, 189);
+}
+
+.vote-button-container {
+    display: flex;
+    justify-content: center;
+}
+
+#myTab .nav-item {
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.title-desc-div {
+    padding: 20px;
+    margin-top: 10vh;
+    
+    background: #B24592;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #F15F79, #B24592);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #F15F79, #B24592); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+    /*background-color: rgb(233, 233, 233);*/
+    border-radius: 8px;
+    width: 80vw;
+    color: black;
+}
+
+.title-addtional-info {
+    font-weight: 750;
+}
+@media (max-width: 999px) {
+    .navbar-nav {
+        display: flex;
+        flex-direction: column;
+        z-index: 100;
+    }
+
+    .navigation-left, .navigation-right {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.status-text {
+    font-size: 1.2rem;
+    font-weight: 648;
+}
+
+.notification-text{
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-decoration: underline;
+    font-size: 1rem;
+}
+
+.result-container {
+    background-color: white;
+    padding: 10px;
+    width: 260px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3vh;
+}
+
+.result-percent {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.result-status {
+    width: fit-content;
+    background-color: aliceblue;
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+}
