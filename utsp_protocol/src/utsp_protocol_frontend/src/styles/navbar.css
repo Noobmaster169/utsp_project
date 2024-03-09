@@ -1,8 +1,18 @@
 header {
-    opacity: 0.92;
-    position: sticky;
+    opacity: 0.8;
+    /*position: sticky;*/
     top: 0;
     z-index: 100;
+    background: transparent;
+}
+
+header .nav-link{
+    color: white;
+}
+
+header .nav-link:hover{
+    color: #5FC6D9;
+    text-decoration: underline;
 }
 
 .navigation-bar {
@@ -26,6 +36,8 @@ header {
     margin-right: 10px;
 }
 
-.nav-link:hover{
-    text-decoration: underline;
+.log-button{
+    padding: 5px 40px;
+    background-color: white;
+    border-radius: 20px;
 }

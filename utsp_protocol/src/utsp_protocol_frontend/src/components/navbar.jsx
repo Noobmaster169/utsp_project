@@ -20,7 +20,7 @@ export default function Navbar({login, isAuthenticated, logout}){
     return (
         
             <header>
-                <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <nav class="navbar navbar-expand-lg">
                     <div class="container-fluid">
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -43,13 +43,13 @@ export default function Navbar({login, isAuthenticated, logout}){
                                 {isAuthenticated ?
                                 <div className='navigation-right'>
                                     <li class="nav-item">
-                                        <a class="nav-link" id='logoutButton' onClick={startLogout}>Log Out</a>
+                                        <a class="nav-link log-button" id='logoutButton' onClick={startLogout}>Log Out</a>
                                     </li>
                                 </div>
                                 :
                                 <div className='navigation-right'>
                                     <li class="nav-item">
-                                        <a class="nav-link" id='loginButton' onClick={startLogin}>Login</a>
+                                        <a class="nav-link log-button" id='loginButton' onClick={startLogin}>Login</a>
                                     </li>
                                 </div>
                                 }

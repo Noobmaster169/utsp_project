@@ -28,7 +28,7 @@ export default function Create({votingManager}){
             createButton.setAttribute("disabled", true);
             
             const voteID = parseInt(generateRandomID());
-            const voteTitle = formData.get('title').toUpperCase();
+            const voteTitle = formData.get('title');
             const voteDesc = formData.get('desc');
             const voteImg = "";
 
@@ -133,7 +133,7 @@ export default function Create({votingManager}){
                                     <label for="display-desc-input">Description</label>
                                     <textarea id="display-desc-input" name='desc'></textarea>
                                 </div>
-                                <div class="form-input-container">
+                                <div class="form-button-container">
                                     <div class="flex-end">
                                         <button class="btn btn-primary" id="createButton" type='submit'>Create</button>
                                     </div>

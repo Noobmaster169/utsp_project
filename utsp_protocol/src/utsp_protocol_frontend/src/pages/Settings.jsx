@@ -54,7 +54,7 @@ export default function Settings({votingManager}){
                 return false;
             }
             
-            const voteTitle = formData.get('title').toUpperCase();
+            const voteTitle = formData.get('title');
             const voteDesc = formData.get('desc');
             console.log(ID,voteTitle,voteDesc,"");    
 
@@ -77,9 +77,6 @@ export default function Settings({votingManager}){
             console.log("Saving Voting Options");
             const optionSaveButton = document.getElementById("optionSaveButton");
             optionSaveButton.setAttribute("disabled", true);
-
-            console.log("Data:");
-            console.log(formData);
 
             if(!ID){
                 alert("No Voting Detected");
@@ -295,7 +292,7 @@ export default function Settings({votingManager}){
                                     <label for="display-desc-input">Description</label>
                                     <textarea id="display-desc-input" name='desc'></textarea>
                                 </div>
-                                <div class="form-input-container">
+                                <div class="form-button-container">
                                     <div class="flex-end">
                                         <button id="displaySaveButton" class="btn btn-primary" type='submit'>Save</button>
                                     </div>
@@ -317,7 +314,7 @@ export default function Settings({votingManager}){
                                 <div id="option-parent-container">
                                     {optionList}
                                 </div>
-                                <div class="form-input-container">
+                                <div class="form-button-container">
                                     <div class="flex-end">
                                         <button type='button' class="btn btn-primary" onClick={() => add_option()}>Add Option</button>
                                         <button id="optionSaveButton" class="blue-button" type='submit'>Save</button>
@@ -341,7 +338,7 @@ export default function Settings({votingManager}){
                                     <label for="canister-input">Voting Token Canister ID</label>
                                     <input id="canister-input" name='canister' type="text"/>
                                 </div>
-                                <div class="form-input-container">
+                                <div class="form-button-container">
                                     <div class="flex-end">
                                         <button id="canisterSaveButton" class="btn btn-primary" type='submit'>Save</button>
                                     </div>
@@ -356,7 +353,7 @@ export default function Settings({votingManager}){
                             Update Voting Status
                         </div>
                         <div id="status-content-form" class="form-content">
-                            <div class="status-input">
+                            <div class="form-button-container status-input">
                                 <button id="startVotingButton" onClick={startVoting}  class="btn btn-primary status-button">Start Voting</button>
                                 <button id="endVotingButton"   onClick={endVoting}   class="btn btn-primary status-button">End Voting</button>
                             </div>

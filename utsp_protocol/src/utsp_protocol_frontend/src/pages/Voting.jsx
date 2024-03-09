@@ -40,6 +40,7 @@ export default function Voting({isAuthenticated, votingManager, tokenManager}){
     const [result, setResult] = useState([]);
     const [resultMessage, setResultMessage] = useState('');
     const [selectedOption, setSelectedOption] = useState('');
+    const [pageUpdated, setPageUpdated] = useState(false);
 
     function openSettings(){
         navigate('/settings', {state: {VoteID}})
@@ -53,8 +54,7 @@ export default function Voting({isAuthenticated, votingManager, tokenManager}){
         const voteButton = document.getElementById("voteButton");
         voteButton.setAttribute("disabled", true);
         
-        console.log("Selecting Vote", selectedOption);
-        console.log(selectedOption);
+        console.log("Selecting Option", selectedOption);
         if(selectedOption===''){
             alert("No Option Selected");
             voteButton.removeAttribute("disabled")
@@ -78,10 +78,10 @@ export default function Voting({isAuthenticated, votingManager, tokenManager}){
             if(!canister){return false};
             try{
                 const status = await tokenManager.getStatus(canister).catch(()=>{
-                    alert("Error Connecting to canister")
+                    console.log("Failed To Connect to Canister")
                 })
-                console.log("Token Status: ", status)
                 if(status){
+                    console.log("Token Status: ", status)
                     const token_data = status.split(",");
                     setTokenStatus({
                         tokenSupply: token_data[0],
@@ -110,6 +110,7 @@ export default function Voting({isAuthenticated, votingManager, tokenManager}){
                 const isOwner = await votingManager.isOwner(ID);
                 setIsOwner(isOwner);
                 setVoteData(modifiedData);
+                setPageUpdated(true);
                 if(modifiedData.canister){
                     getTokenStatus(modifiedData.canister[0]);   
                 }
@@ -220,8 +221,6 @@ export default function Voting({isAuthenticated, votingManager, tokenManager}){
             try{
                 const resultDisplays = [];
                 const results = await votingManager.getResult(ID)
-                console.log("Canister Result:", results);
-                console.log(results);
                 if(results.length === 0){
                     voteData.options.forEach((option, index) => {
                         resultDisplays.push(
@@ -236,9 +235,7 @@ export default function Voting({isAuthenticated, votingManager, tokenManager}){
                     })
                 }else{
                     const result_scores = results.split(",").slice(1);
-                    console.log("Splitted:", result_scores);
                     const total_scores = result_scores.reduce((acc, currentValue) => acc + parseInt(currentValue), 0);
-                    console.log("Total:", total_scores);
                     const result_percents = result_scores.map((score)=> parseInt(parseInt(score)/total_scores*100))
                     console.log("Percents:", result_percents)
                     
@@ -272,62 +269,68 @@ export default function Voting({isAuthenticated, votingManager, tokenManager}){
         }
         getVoteResult(ID);
     })
-    console.log(voteData);
 
     return (
         <div>
             <div class="page-container">
-                <div class="title-desc-div mb-4">
-                    <div class="page-title">
-                        {voteData.title}
-                    </div>
-                    <div class="title-image">
-                        <img src={votingImg}/>
-                    </div>
-                    <div class="title-desc mb-2">
-                        {voteData.desc}
-                    </div>
-                    <div class="d-flex flex-row justify-content-center title-addtional-info">
-                        <div class="d-flex flex-column">
-                            <div>Token Canister</div>
-                            <div>Token Name</div>
-                            <div>Token Supply</div>
+                <div class="title-desc-div mb-5">
+                    <div class="d-flex width-100 align-items-center mx-auto title-desc-parent title-position">
+                        <div class="mx-4 title-img title-img-div">
+                            <img src={votingImg} class="title-img"/>
                         </div>
-                        <div class="d-flex flex-column mx-1">
-                            <div>:</div>
-                            <div>:</div>
-                            <div>:</div>
-                        </div>
-                        <div class="d-flex flex-column">
-                            <div>{voteData.canister ? voteData.canister : "Not Found"}</div>
-                            <div>{tokenStatus.tokenName ? tokenStatus.tokenName : "Not Found"}</div>
-                            <div>{tokenStatus.tokenSupply? tokenStatus.tokenSupply : "Not Found"}</div>
-                        </div>
-                    </div>
-                    <div class="status">
-                        <div class="siren-parent-div mt-1">
-                            <img width="20" height="20" src={siren} class="siren-icon" alt="siren"/>
-                            <div class="siren-notif-block">
-                                Token Contract Security Hasn't Been Verified
+                        <div class="title-contents width-100">
+                            <div class="page-title">
+                                {pageUpdated? voteData.title : "Loading Title..."}
+                            </div>
+                            <div class="title-creator">
+                                Created By: {pageUpdated? voteData.creator : "....."}
+                            </div>
+                            <div class="title-desc mb-2">
+                                {pageUpdated? voteData.desc : "Loading Desc..."}
+                            </div>
+                            <div class="d-flex flex-row title-addtional-info">
+                                <div class="d-flex flex-column">
+                                    <div>Token Canister</div>
+                                    <div>Token Name</div>
+                                    <div>Token Supply</div>
+                                </div>
+                                <div class="d-flex flex-column mx-1">
+                                    <div>:</div>
+                                    <div>:</div>
+                                    <div>:</div>
+                                </div>
+                                <div class="d-flex flex-column">
+                                    <div>{voteData.canister ? voteData.canister : "Not Found"}</div>
+                                    <div>{tokenStatus.tokenName ? tokenStatus.tokenName : "Not Found"}</div>
+                                    <div>{tokenStatus.tokenSupply? tokenStatus.tokenSupply : "Not Found"}</div>
+                                </div>
+                            </div>
+                            {isOwner ? <button class="setting-button" onClick={openSettings}>Voting Settings</button>: ""}
+                            <div class="status">
+                                <div class="siren-parent-div">
+                                    <img width="20" height="20" src={siren} class="siren-icon" alt="siren"/>
+                                    <div class="siren-notif-block">
+                                        Token Contract Security Hasn't Been Verified
+                                    </div>
+                                </div>
+                                <div class="status-text mx-1">Status: {votingStatus}</div>
                             </div>
                         </div>
-                        <div class="status-text mx-1">Status: {votingStatus}</div>
                     </div>
                 </div>
 
-                {isOwner ? <button onClick={openSettings}>Voting Settings</button>: ""}
                 <div class="option-bar mt-2 mb-2">
                     <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
-                        <li class="nav-item" role="presentation">
+                        <li class="tab-item" role="presentation">
                             <button class="nav-link active tab-pane-button" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Voting</button>
                         </li>
-                        <li class="nav-item" role="presentation">
+                        <li class="tab-item" role="presentation">
                             <button class="nav-link tab-pane-button" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Activity Log</button>
                         </li>
-                        <li class="nav-item" role="presentation">
+                        <li class="tab-item" role="presentation">
                             <button class="nav-link tab-pane-button" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Token Holders</button>
                         </li>
-                        <li class="nav-item" role="presentation">
+                        <li class="tab-item" role="presentation">
                             <button class="nav-link tab-pane-button" id="results-tab" data-bs-toggle="tab" data-bs-target="#results-tab-pane" type="button" role="tab" aria-controls="results-tab-pane" aria-selected="false">Results</button>
                         </li>
                     </ul>
@@ -335,7 +338,7 @@ export default function Voting({isAuthenticated, votingManager, tokenManager}){
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
                             
-                            {voteData.options? 
+                            {pageUpdated? 
                                 (votingOptions.length !== 0? 
                                     <div>
                                     <div class="vote-container">
@@ -346,7 +349,7 @@ export default function Voting({isAuthenticated, votingManager, tokenManager}){
                                     </div>
                                     </div>:
                                 <p class="notification-text">No Voting Option Detected</p>): 
-                                <p class="notification-text">Loading Voting Options</p>
+                                <p class="notification-text">Loading Voting Options...</p>
                             }
                         </div>
 

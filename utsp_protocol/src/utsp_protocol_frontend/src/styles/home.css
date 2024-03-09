@@ -2,16 +2,29 @@
 
 
 #landing-page-1 {
-    background-image: url('../assets/home_bg.jpg');
+    /*background-image: url('../assets/home_bg.jpg');*/
+    background: linear-gradient(to right, #1f0834, #31176e);
     background-size: cover;
     background-position: center;
 }
 
 header {
-    opacity: 0.92;
+    opacity: 0.95;
     position: sticky;
     top: 0;
     z-index: 100;
+    background: linear-gradient(to right, #1f0834, #31176e);
+}
+
+
+header .nav-link{
+    color: white;
+    font-size: 18px;
+}
+
+header .nav-link:hover{
+    color: #5FC6D9;
+    text-decoration: underline;
 }
 
 .navigation-bar {
@@ -24,6 +37,10 @@ header {
 .navigation-left {
     display: flex;
     justify-content: flex-start;
+}
+
+.navigation-left .nav-item{
+    margin-right: 40px;
 }
 
 .navigation-right {
@@ -76,6 +93,7 @@ header {
     color: white;
     font-weight: 600;
     margin-top: 0;
+    text-shadow: 0px 0px 10px #5FC6D9;
 }
 
 #landing-parent .region-5 {
@@ -87,7 +105,7 @@ header {
 }
 
 #landing-parent .region-6 button {
-    background-color: #d766ae;
+    background-color: #D20892;
     border-radius: 20px;
     padding: 0.5rem;
     font-size: 1.2rem;
@@ -133,12 +151,14 @@ header {
     background-color: white;
     margin-top: 3vh;
     border-radius: 16px;
-    border: 4px solid #d1d1d1;
     display: flex;
     padding: 20px;
     flex-direction: column;
     text-align: center;
     margin: 1rem;
+    border: 4px solid #5FC6D9;
+    box-shadow: 0px 0px 10px #5FC6D9,
+            0px 0px 10px #5FC6D9 inset;
 }
 
 #landing-feature-container-parent {
@@ -179,7 +199,8 @@ header {
 
 #landing-page-3 {
     z-index: 3;
-    background-color: #B02D99;
+    /*background-color: #B02D99;*/
+    background-color: #240e58;
 }
 
 .landing-page-3-title {
@@ -188,6 +209,7 @@ header {
     color: white;
     text-align: center;
     font-weight: 600;
+    text-shadow: 0px 0px 10px #5FC6D9;
 }
 
 #landing-product-parent-container {
@@ -207,6 +229,9 @@ header {
     flex-direction: column;
     text-align: center;
     background-color: #FBE2FF;
+    border: 4px solid #5FC6D9;
+    box-shadow: 0px 0px 10px #5FC6D9,
+            0px 0px 10px #5FC6D9 inset;
 }
 
 .product-image {
@@ -356,13 +381,19 @@ header {
 }
 
 #landing-parent .region-6 button:hover {
-    background-color: #B02D99;
+    background-color: #BD0A84;
 }
 
 .landing-feature-container:hover{
-    background-color: rgb(224,224,224);
+    background-color: rgb(234,234,234);
 }
 
 .landing-product-container:hover{
     background-color: #fad3ff;
+}
+
+.log-button{
+    padding: 5px 40px;
+    background-color: white;
+    border-radius: 20px;
 }

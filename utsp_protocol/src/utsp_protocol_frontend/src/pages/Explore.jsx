@@ -53,7 +53,7 @@ export default function Explore(){
         <div>
             <div class="w-100 d-flex justify-content-center mt-5">
                 <div class="explore-page-title-container d-inline-block">
-                    <div class="explore-page-title color-white">
+                    <div class="explore-page-title">
                         Explore Votings
                     </div>
                 </div>
