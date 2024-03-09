@@ -26,6 +26,9 @@ header .nav-link:hover{
     color: #5FC6D9;
     text-decoration: underline;
 }
+header .nav-link.active{
+    color: white;
+}
 
 .navigation-bar {
     display: flex;
