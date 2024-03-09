@@ -1,6 +1,6 @@
 # DIP721 NFTs
 
-**An Example Of DIP721 NFT Token Standard Provide By Internet Computer**
+## An Example Of DIP721 NFT Token Standard Provide By Internet Computer
 
 [DIP-721](https://github.com/Psychedelic/DIP721) is an ERC-721 style Non-Fungible Token standard built mirroring its Ethereum counterpart and adapting it to the Internet Computer, maintaining the same interface.
 This Token Standard could provide the necessary Interface to interact with UTSP Protocol to Identify and Verify Voters. 
