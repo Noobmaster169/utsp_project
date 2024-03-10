@@ -1,4 +1,4 @@
-![Landing Page](https://github.com/Noobmaster169/utsp_project/src/home_page.png)
+![Landing Page]([https://github.com/Noobmaster169/utsp_project/src/home_page.png](https://github.com/Noobmaster169/utsp_project/blob/main/src/home_page.png))
 
 # UTSP Protocol
 
