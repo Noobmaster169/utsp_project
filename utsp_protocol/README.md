@@ -34,6 +34,7 @@ This project is built on Internet Computer, a Blockchain that runs on a Decentra
 ### Step 1: Clone The Github Respository
 ```bash
 git clone https://github.com/Noobmaster169/utsp_project.git
+cd utsp_project
 ```
 
 ### Step 2: Open UTSP Protocol Directory
