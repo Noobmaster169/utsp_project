@@ -20,8 +20,8 @@ export default function Navbar({login, isAuthenticated, logout}){
     return (
         
             <header>
-                <nav class="navbar navbar-expand-lg">
-                    <div class="container-fluid">
+                <nav class="navbar navbar-expand-lg make-center mt-2">
+                    <div class="container-fluid width-95">
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                         </button>
@@ -29,27 +29,27 @@ export default function Navbar({login, isAuthenticated, logout}){
                         <ul class="navbar-nav d-flex navigation-bar">
                             <div class="navigation-left">
                                 <li class="nav-item">
-                                    <Link className='nav-link' to='/'>Home</Link>
+                                    <Link className='nav-title nav-link' to='/'>Home</Link>
                                 </li>
                                 <li class="nav-item">
-                                    <Link className='nav-link' to='/explore'>Explore</Link>
+                                    <Link className='nav-title nav-link' to='/explore'>Explore</Link>
                                 </li>
                                 <li class="nav-item">
-                                    <Link className='nav-link' to='/create'>Create</Link>
+                                    <Link className='nav-title nav-link' to='/create'>Create</Link>
                                 </li>
                             </div>
                             
 
                                 {isAuthenticated ?
-                                <div className='navigation-right'>
-                                    <li class="nav-item">
-                                        <a class="nav-link log-button" id='logoutButton' onClick={startLogout}>Log Out</a>
+                                <div className='navigation-right make-center'>
+                                    <li class="log-button nav-item">
+                                        <a class="nav-link" id='logoutButton' onClick={startLogout}>Log Out</a>
                                     </li>
                                 </div>
                                 :
-                                <div className='navigation-right'>
-                                    <li class="nav-item">
-                                        <a class="nav-link log-button" id='loginButton' onClick={startLogin}>Login</a>
+                                <div className='navigation-right make-center'>
+                                    <li class="log-button nav-item">
+                                        <a class="nav-link" id='loginButton' onClick={startLogin}>Login</a>
                                     </li>
                                 </div>
                                 }

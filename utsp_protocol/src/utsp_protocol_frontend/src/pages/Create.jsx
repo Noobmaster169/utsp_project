@@ -50,6 +50,8 @@ export default function Create({votingManager}){
             const VoteID = voteID;
             navigate('/voting', {state: {VoteID}});   
         }catch(e){
+            alert(e);
+            createButton.removeAttribute("disabled");
             console.log(e);
         }
     }
@@ -111,8 +113,12 @@ export default function Create({votingManager}){
     return (
         <div>
             <div class="setting-vote-content-container">
-                <div class="vote-setting-page-title">
-                    <span>Create Voting</span>
+                <div class="w-100 d-flex justify-content-center">
+                    <div class="vote-setting-page-title-container">
+                        <div class="vote-setting-page-title">
+                            <span>Create Voting</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="setting-container">
                     <div id="display-form" class="setting-form">

@@ -1,18 +1,24 @@
 header {
-    opacity: 0.8;
-    /*position: sticky;*/
+    opacity: 0.95;
+    position: sticky;
     top: 0;
     z-index: 100;
-    background: transparent;
+    background: linear-gradient(to right, #1f0834, #31176e);
+    justify-content: center;
 }
 
 header .nav-link{
-    color: white;
+    color: white !important;
+    font-size: 18px;
 }
 
 header .nav-link:hover{
-    color: #5FC6D9;
+    color: #5FC6D9 !important;
     text-decoration: underline;
+}
+
+header .nav-link.active{
+    color: white;
 }
 
 .navigation-bar {
@@ -32,12 +38,43 @@ header .nav-link:hover{
     justify-content: flex-end;
 }
 
-.nav-item{
-    margin-right: 10px;
+.navigation-left .nav-item{
+    margin-right: 25px;
+}
+
+.navbar-toggler-icon{
+    text-decoration: underline;
+    background-color:white;
+}
+
+header .navigation-right .nav-link{
+    color: black !important;
+    padding: 0px !important;
 }
 
 .log-button{
-    padding: 5px 40px;
+    padding: 0px 40px!important;
     background-color: white;
     border-radius: 20px;
+    color: black !important;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.log-button:hover{
+    background-color: rgb(225,225,225);
+    text-align: underline;
+}
+
+.width-95{
+    width: 95% !important;
+}
+
+.make-center{
+    display:flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-wrap: wrap;
 }

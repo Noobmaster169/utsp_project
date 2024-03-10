@@ -184,7 +184,7 @@ input:checked + label {
 }
 
 .tab-pane-button:not(.active):hover {
-    color: rgb(189, 189, 189);
+    color: #B4F0FF;
 }
 
 .vote-button-container {

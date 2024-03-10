@@ -1,11 +1,13 @@
-# DIP721 NFTs
+![Group 5982](https://user-images.githubusercontent.com/73345016/144523337-fe7d6b49-d0a7-4621-852d-daeee344d4e2.png)
 
-### An Example Of DIP721 NFT Token Standard Provide By Internet Computer
+# DIP-721 NFT Smart Contract
+
+### An Example Of DIP721 NFT Token Standard Provided By Internet Computer
 
 [DIP-721](https://github.com/Psychedelic/DIP721) is an ERC-721 style Non-Fungible Token standard built mirroring its Ethereum counterpart and adapting it to the Internet Computer, maintaining the same interface.
 This Token Standard could provide the necessary Interface to interact with UTSP Protocol to Identify and Verify Voters. 
 
-Read More About The DFINITY Code Documentation [Here](https://github.com/dfinity/examples/tree/master/motoko/dip721-nft-container).
+Read More About The DFINITY DIP-721 Code Documentation [Here](https://github.com/dfinity/examples/tree/master/motoko/dip721-nft-container).
 
 
 ### Prerequisites 
@@ -73,7 +75,7 @@ dfx deploy --argument "(
 Configure the NFT Canister using the given link during deployment.
 
 ```bash
-export CANISTER=aaaaa-bbbbb-ccccc-ddddd-cai
+export CANISTER=aaaaa-bbbbb-ccccc-ddddd-cai #Change to Canister ID
 ```
 
 ### Step 8: Mint NFT To A Receiver:
@@ -81,7 +83,7 @@ export CANISTER=aaaaa-bbbbb-ccccc-ddddd-cai
 Use the following command to mint an NFT on the IC Network:
 
 ```bash
-export RECEIVER=$(dfx identity get-principal)
+export RECEIVER=$(dfx identity get-principal) #Change to Token Receiver Address
 dfx canister call $CANISTER mintDip721 \
 "(
   principal\"$RECEIVER\", 
@@ -125,7 +127,7 @@ echo $ALICE
 You should see a principal returned:
 
 ```bash
-o4f3h-cbpnm-4hnl7-pejut-c4vii-a5u5u-bk2va-e72lb-edvgw-z4wuq-5qe
+o4f3h-cbpnm-4hnl7-pejut-c4vii-a5u5u-bk2va-e72lb-edvgw-z4wuq-5qe #Example of Returned Principal
 ```
 
 You can Transfer the NFT to `ALICE`'s Address. 

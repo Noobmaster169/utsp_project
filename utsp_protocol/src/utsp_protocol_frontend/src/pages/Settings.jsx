@@ -270,8 +270,12 @@ export default function Settings({votingManager}){
     return (
         <div>
             <div class="setting-vote-content-container">
-                <div class="vote-setting-page-title">
-                    <span>Voting Settings</span>
+            <div class="w-100 d-flex justify-content-center">
+                    <div class="vote-setting-page-title-container">
+                        <div class="vote-setting-page-title">
+                            <span>Voting Settings</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="setting-container">
                     <div id="display-form" class="setting-form">
