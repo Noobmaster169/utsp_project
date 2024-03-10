@@ -5,7 +5,7 @@ This Project is an implementation of a Secure Digital Voting System Using Intern
 
 Read More About UTSP Protocol [Here](utsp_protocol)
 
-![alt text](../src/home_page.png)
+![alt text](src/home_page.png)
 
 The Project Will Be Divided into 2 Directories:
 - [Internet Computer DIP-721 Example Token](dip721-nft-container)
