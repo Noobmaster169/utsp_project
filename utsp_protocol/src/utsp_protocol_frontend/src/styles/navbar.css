@@ -42,9 +42,9 @@ header .nav-link.active{
     margin-right: 25px;
 }
 
-.navbar-toggler-icon{
+.navbar-toggler{
     text-decoration: underline;
-    background-color:white;
+    background-color:white !important;
 }
 
 header .navigation-right .nav-link{

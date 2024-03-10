@@ -74,7 +74,7 @@ export default function Home(){
                             <div class="landing-feature-title-2">
                                 Flexible Control
                             </div>
-                            <div class="landing-feature-description-1">
+                            <div class="landing-feature-description-2">
                                 High Adjustability and Flexibility for Voting Creators to Manage Voting to their Preferences
                             </div>
                         </div>

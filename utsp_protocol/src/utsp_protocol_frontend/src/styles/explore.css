@@ -1,20 +1,3 @@
-
-
-
-/*body {
-    background: #DA4453; 
-    background: -webkit-linear-gradient(to right, #89216B, #DA4453); 
-    background: linear-gradient(to right, #89216B, #DA4453);
-}*/
-    /*background-image: url(https://img.freepik.com/free-vector/background-with-dar-wave-concept_23-2148387248.jpg?w=740&t=st=1708312757~exp=1708313357~hmac=0d53f67dd2016314d7ebcf2cfb16768ff51991ce9a0e735df7def5f53b072ed8);
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    body{
-        background-image: url('../assets/home_bg.jpg');
-        background-size: cover;
-        background-position: center;
-    }*/
 body{
     background: linear-gradient(to right, #1f0834, #31176e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background-size: cover;
@@ -59,7 +42,7 @@ body{
 }
 
 .voting-container {
-    height: 300px;
+    height: 310px;
     width: 260px;
     background-color: rgb(241, 241, 241);
     border-radius: 16px;
@@ -81,7 +64,7 @@ body{
 }
 
 .voting-container:hover{
-    background-color: rgba(220, 220, 220);
+    background-color: #DDF7FF;
 }
 
 .explore-content-container {

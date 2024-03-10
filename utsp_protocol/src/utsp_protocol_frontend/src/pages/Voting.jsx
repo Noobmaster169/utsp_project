@@ -4,7 +4,7 @@ import { useParams, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import '../styles/voting.css';
 import votingImg from '../assets/voting.png';
-import cat from '../assets/Cat.jpg';
+import user from '../assets/colored_user.png';
 import siren from '../assets/siren.png';
 import { useNavigate } from 'react-router-dom';
 
@@ -139,7 +139,7 @@ export default function Voting({isAuthenticated, votingManager, tokenManager}){
             <input type="radio" name="pilihan" id={"pilihan-"+(index+1)} onChange={() =>{changeOption(index)}} />
             <label for={"pilihan-"+(index+1)}>
                 <div class="option-label-div">
-                    <img src={cat} class="mt-2 vote-photo"/>
+                    <img src={user} class="mt-2 vote-photo"/>
                     <div class="vote-name">
                         {option.title}
                     </div>
@@ -221,11 +221,12 @@ export default function Voting({isAuthenticated, votingManager, tokenManager}){
             try{
                 const resultDisplays = [];
                 const results = await votingManager.getResult(ID)
+                console.log("Voting Results:", results);
                 if(results.length === 0){
                     voteData.options.forEach((option, index) => {
                         resultDisplays.push(
                             <div class="result-container">
-                                <img src={cat} class="mt-2 vote-photo"/>
+                                <img src={user} class="mt-2 vote-photo"/>
                                 <div class="vote-name">
                                     {option.title}
                                 </div>
@@ -236,9 +237,11 @@ export default function Voting({isAuthenticated, votingManager, tokenManager}){
                 }else{
                     const result_scores = results.split(",").slice(1);
                     const total_scores = result_scores.reduce((acc, currentValue) => acc + parseInt(currentValue), 0);
-                    const result_percents = result_scores.map((score)=> parseInt(parseInt(score)/total_scores*100))
-                    console.log("Percents:", result_percents)
-                    
+                    let result_percents = result_scores.map((score)=> parseInt(parseInt(score)/total_scores*100));
+                    if(total_scores === 0){
+                        result_percents = result_scores.map((score) =>0);
+                    }
+                    console.log("Percents:", result_percents);
                     let highest = {
                         name: null,
                         percent: 0,
@@ -246,7 +249,7 @@ export default function Voting({isAuthenticated, votingManager, tokenManager}){
                     voteData.options.forEach((option, index) => {
                         resultDisplays.push(
                             <div class="result-container">
-                                <img src={cat} class="mt-2 vote-photo"/>
+                                <img src={user} class="mt-2 vote-photo"/>
                                 <div class="vote-name">
                                     {option.title}
                                 </div>
@@ -259,7 +262,10 @@ export default function Voting({isAuthenticated, votingManager, tokenManager}){
                                 percent: result_percents[index],
                             };
                         };
-                    });  
+                    }); 
+                    if(highest.percent === 0){
+                        highest.name = "Everybody"
+                    } 
                     setResultMessage(`Voting Has Ended. ${highest.name} got ${highest.percent}% of the votes`)
                 }
                 setResult(resultDisplays);
@@ -275,7 +281,7 @@ export default function Voting({isAuthenticated, votingManager, tokenManager}){
             <div class="page-container">
                 <div class="title-desc-div mb-5">
                     <div class="d-flex width-100 align-items-center mx-auto title-desc-parent title-position">
-                        <div class="mx-4 title-img title-img-div">
+                        <div class="mx-auto title-img title-img-div">
                             <img src={votingImg} class="title-img"/>
                         </div>
                         <div class="title-contents width-100">
@@ -305,7 +311,12 @@ export default function Voting({isAuthenticated, votingManager, tokenManager}){
                                     <div>{tokenStatus.tokenSupply? tokenStatus.tokenSupply : "Not Found"}</div>
                                 </div>
                             </div>
-                            {isOwner ? <button class="setting-button" onClick={openSettings}>Voting Settings</button>: ""}
+                            {isOwner ? 
+                                <button class="btn setting-button" onClick={openSettings}>
+                                    <i class="fa-solid fa-gear"></i>
+                                    Voting Settings
+                                </button>: ""
+                            }
                             <div class="status">
                                 <div class="siren-parent-div">
                                     <img width="20" height="20" src={siren} class="siren-icon" alt="siren"/>

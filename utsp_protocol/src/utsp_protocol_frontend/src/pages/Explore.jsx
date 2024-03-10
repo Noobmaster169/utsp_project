@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import '../styles/explore.css';
-import Cat from '../assets/Cat.jpg';
 import Voting from '../assets/voting.png';
 import Add from '../assets/add.png';
 import { votingManager } from '../../../declarations/votingManager';
