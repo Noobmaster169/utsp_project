@@ -7,6 +7,8 @@
 [DIP-721](https://github.com/Psychedelic/DIP721) is an ERC-721 style Non-Fungible Token standard built mirroring its Ethereum counterpart and adapting it to the Internet Computer, maintaining the same interface.
 This Token Standard could provide the necessary Interface to interact with UTSP Protocol to Identify and Verify Voters. 
 
+**Note: This Project is Cloned & Modified from the Official DFINITY DIP-721 Token Standard Documentation**
+
 Read More About The DFINITY DIP-721 Code Documentation [Here](https://github.com/dfinity/examples/tree/master/motoko/dip721-nft-container).
 
 
@@ -17,14 +19,14 @@ Read More About The DFINITY DIP-721 Code Documentation [Here](https://github.com
 
  ### Step 1: Clone the project repo:
 
+### Step 1: Clone The Github Respository
 ```bash
-git clone git@github.com:dfinity/examples.git
+git clone https://github.com/Noobmaster169/utsp_project.git
 ```
 
- ### Step 2: Navigate to DIP721 project root:
-
+### Step 2: Open Example DIP-721 Token Directory
 ```bash
-cd examples/motoko/dip-721-nft-container
+cd dip721-nft-container
 ```
 
  ### Step 3: Run a local instance of the Internet Computer:
