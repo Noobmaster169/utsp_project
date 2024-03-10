@@ -1,3 +1,5 @@
+![alt text](../src/home_page.png)
+
 # UTSP Protocol
 
 UTSP Protocol is a 3rd Party Web3 Application that provide Secure, Decentralized, and Transparent Voting System.
