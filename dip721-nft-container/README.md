@@ -17,11 +17,10 @@ Read More About The DFINITY DIP-721 Code Documentation [Here](https://github.com
 - [x] Install the [IC SDK](https://internetcomputer.org/docs/current/developer-docs/setup/install/index.mdx).
 - [x] Download and install [git.](https://git-scm.com/downloads)
 
- ### Step 1: Clone the project repo:
-
 ### Step 1: Clone The Github Respository
 ```bash
 git clone https://github.com/Noobmaster169/utsp_project.git
+cd utsp_project
 ```
 
 ### Step 2: Open Example DIP-721 Token Directory
