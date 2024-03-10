@@ -10,11 +10,14 @@ This project is built on Internet Computer, a Blockchain that runs on a Decentra
 
 
 ## How Does UTSP Works?
+
 1. Voting Creator Creates A Voting Token, Then Distribute It To Valid Voters
 2. Voting Creator Uses UTSP Protocol to Establish a Voting Session By Integrating Token Standard Technology from The Previously Created Token
 3. Voters Interact with UTSP Protocol to Select Their Vote
 4. UTSP Protocol Establish The Secure & Transparent Voting Sessions
 
+![alt text](../src/token_distribution.png)
+![alt text](../src/voting_process.png)
 
 ## Integrated Technology
 
