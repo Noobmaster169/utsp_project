@@ -6,7 +6,7 @@ UTSP Protocol is a 3rd Party Web3 Application that provide Secure, Decentralized
 
 UTSP stands for Universal Token-Standarized Polling, which is an Innovative Voting System that integrates the technology of Token Standard to verify voters during a voting session.
 
-This project is built on Internet Computer, a Blockchain that runs on a Decentralized Networks of Computers. UTSP Protocol utilizes some of the newest technology provided by UTSP Protocol, such as Internet Identity, Cloud 3.0, and Internet Computer Token Standard. UTSP Protocol also uses Proof of Activity to provide transparent but secure voting data.
+This project is built on Internet Computer, a Blockchain that runs on a Decentralized Networks of Computers. UTSP Protocol utilizes some of the newest technology provided by Internet Computer, such as Internet Identity, Cloud 3.0, and Internet Computer Token Standard. UTSP Protocol also uses Proof of Activity to provide transparent but secure voting data.
 
 
 ## How Does UTSP Works?
